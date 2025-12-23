@@ -18,25 +18,28 @@ sessionStore.on('error', (error) => {
 });
 
 export const authenticate = async(email,password)=>{
-    if (email && password) {
-        if (email == 'ayush.jnv54@gmail.com' && password === "1234") {
-            return Promise.resolve({ email : email, password : password });
-        } else {
-            return null
-        }
-    }
-
-
-    // UNCOMMENT WHEN ADMIN CREATED MANUALLY
+    
+    
+    
     // if (email && password) {
-    //     const user = await Admin.findOne({email});
-    //     if (!user) {
-    //         return null
-    //     }
-    //     if (user.password === password) {
-    //         return Promise.resolve({ email: email, password: password });
+    //     if (email == 'ayush.jnv54@gmail.com' && password === "1234") {
+    //         return Promise.resolve({ email : email, password : password });
     //     } else {
     //         return null
     //     }
     // }
+
+
+    // Uncomment When ADMIN CREATED MANUALLY
+    if (email && password) {
+        const user = await Admin.findOne({email});
+        if (!user) {
+            return null
+        }
+        if (user.password === password) {
+            return Promise.resolve({ email: email, password: password });
+        } else {
+            return null
+        }
+    }
 }

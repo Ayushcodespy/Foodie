@@ -9,7 +9,7 @@ import { Server } from "socket.io"
 const start = async () => {
 
     await connectDB(process.env.MONGO_URI)
-    console.log("DB Connected ✅✅")
+    // console.log("DB Connected ✅✅")
 
     const app = fastify()
 
